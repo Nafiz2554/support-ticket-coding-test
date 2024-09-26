@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SuperAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/login', [LoginController::class, 'login']);
+ 
+//Admin login
+Route::get('/admins', [AdminController::class, 'index'])->name('admin.sign.in');
+Route::post('/admin.dashboard', [AdminController::class, 'show_dashboard']);
+Route::get('/admin-dashboard', [SuperAdminController::class, 'dashboard']);
+Route::get('/admin-logout', [SuperAdminController::class, 'logout']);
