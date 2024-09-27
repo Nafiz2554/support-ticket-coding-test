@@ -59,13 +59,13 @@
                     <div class="sidebar_user_info">
                         <div class="icon_setting"></div>
                         <div class="user_profle_side">
-                            <div class="user_img"><img class="img-responsive" style="width: 50px;" src="{{ asset('admin/images/fabicon.jpg') }}"
-                                    alt="#" /></div> 
+                            <div class="user_img"><img class="img-responsive" style="width: 50px;"
+                                    src="{{ asset('admin/images/fabicon.jpg') }}" alt="#" /></div>
                         </div>
                     </div>
                 </div>
                 <div class="sidebar_blog_2">
-                    
+
                     <ul class="list-unstyled components">
                         <li><a href="/admin-dashboard"><i class="fa fa-clock-o orange_color"></i> <span>
                                     Dashboard</span></a></li>
@@ -73,18 +73,15 @@
                             <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
                                     class="fa fa-object-group blue2_color"></i> <span>Ticket </span></a>
                             <ul class="collapse list-unstyled" id="apps">
-                                <li><a href="{{ url('create-course') }}"> <span>Add Ticket</span></a></li>
-                                <li><a href="{{ url('courses') }}"> <span>All Ticket</span></a></li>
+                                @if (Session()->get('admin_type') == 'customer')
+                                    <li><a href="{{ url('create-ticket') }}"> <span>Add Ticket</span></a></li>
+                                @endif
+
+                                @if (Session()->get('admin_type') == 'admin')
+                                    <li><a href="{{ url('tickets') }}"> <span>All Ticket</span></a></li>
+                                @endif
                             </ul>
                         </li>
-                        <li class="active">
-                            <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
-                                    class="fa fa-dashboard yellow_color"></i> <span>User</span></a>
-                            <ul class="collapse list-unstyled" id="dashboard">
-                                <li><a href="/create-lession"> <span>Add  </span></a></li>
-                                <li><a href="/lessons/"> <span>All  </span></a></li>
-                            </ul>
-                        </li> 
 
                     </ul>
                 </div>
@@ -97,10 +94,10 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="full">
                             <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
-                                    class="fa fa-bars"></i></button> 
+                                    class="fa fa-bars"></i></button>
                             <div class="right_topbar">
                                 <div class="icon_info">
-                                     
+
                                     <ul class="user_profile_dd">
                                         <li>
                                             <a class="dropdown-toggle" data-toggle="dropdown"> <span
@@ -129,7 +126,7 @@
                                 <script>
                                     document.write(new Date().getFullYear());
                                 </script> All rights reserved.<br><br>
-                                Distributed By: <a href=" ">RamFit</a>
+                                Distributed By: <a href=" ">Nafiz Fuad</a>
                             </p>
                         </div>
                     </div>

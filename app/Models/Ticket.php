@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Ticket extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
-    
+    protected $fillable = ['id', 'title','desc','status','user_id'];
 }
